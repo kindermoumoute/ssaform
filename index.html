@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>The unseen hero of modern compilers</title>
+      <meta name="description" content="End of summer presentation 2016">
+      <meta name="author" content="Olivier Cano">
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+      <!-- favicon icons -->
+      <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+      <link rel="manifest" href="favicon/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+      <meta name="theme-color" content="#ffffff">
+      <!-- end favicon code -->
+      <link rel="stylesheet" href="css/reveal.css">
+      <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+      <!-- Code syntax highlighting -->
+      <link rel="stylesheet" href="lib/css/zenburn.css">
+      <!-- Printing and PDF exports -->
+      <script>
+         var link = document.createElement( 'link' );
+         link.rel = 'stylesheet';
+         link.type = 'text/css';
+         link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+         document.getElementsByTagName( 'head' )[0].appendChild( link );
+      </script>
+      <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+      <![endif]-->
+      <!-- these are my custom styles. remember that slide sizes scale, so try to use percentages. -->
+      <style>
+         p.alignLeft {
+         text-align: left;
+         }
+         span.orange, a.orange {
+         color: orange;
+         outline-color: gray;
+         }
+         div.innovation ul li {
+         margin-bottom:12px;
+         }
+         figcaption {
+         font-size:.8em;
+         }
+         p.miscItems {
+         font-size:1.2em;
+         }
+         .slides section h3 {
+         color: orange !important; outline: gray;
+         }
+         .slides img.shortened {
+         max-width: 80%;
+         max-height: 80%;
+         }
+         #upcoming-slide .label {
+         color: #444 !important
+         }
+         ul.credits li {
+         font-size: .6em;
+         }
+         html.img-right div.slide-background.present {
+         background-position: right;
+         }
+      </style>
+      <!-- Note: Make artboard sizes about 775px wide X 445px tall. If the image appears as a vertical navigation, add a class of "shortened" to the image element to reduce its size to 80% -->
+   </head>
+   <body>
+      <div class="reveal innovation">
+         <!-- Any section element inside of this container is displayed as a slide -->
+         <div class="slides">
+            <section>
+
+               <h1>The unseen hero of modern compilers</h1></br>
+               <br>
+               <p>
+                  <small>Created by <a href="https://github.com/kindermoumoute">Olivier Cano</a> / <a href="https://twitter.com/kindermoumoute">@kindermoumoute</a></small>
+               </p>
+               
+               <aside class="notes">
+                  <p>- Hi, I'm Olivier Cano</p>
+                  <p>- Interning in SDI</p>
+                  <p>- Find the slides online</p>
+               </aside>
+            </section>
+
+            <!--<section>
+                <h2>Keyboard Shortcuts</h2>
+                <table>
+                    <tr>
+                      <td><b>Full Screen</b></td>
+                      <td>F</td>
+                    </tr>
+                    <tr>
+                      <td><b>Next Slide</b></td>
+                      <td>Space bar</td>
+                    </tr>
+                    <tr>
+                      <td><b>Slide Notes</b></td>
+                      <td>S</td>
+                    </tr>
+                    <tr>
+                      <td><b>Thumbnail View</b></td>
+                      <td>Esc</td>
+                    </tr>
+                </table>
+                <p><small>View online at <a href="https://github.com/kindermoumoute/ssaform">https://github.com/kindermoumoute/ssaform </a></small><br/>
+                <small><i><b>Note:</b> Some slides move down instead of to the side, so use the space bar to advance slides.</i></small></p>
+              
+                <aside class="notes">
+                <p>This is the speaker notes view.</p>
+                <p>Notice the navigation arrows in the lower corner.</p>
+                </aside>
+            </section>-->
+
+            <section>
+              <h2>About Me</h2>
+               <section>
+                  <ul>
+                  <li> Working on Snap in the SDI Team</li>
+                  <li> Student at Centrale Lille IG2I, northern France</li>
+                  <li> Advocate for sustainability</li>
+                  <li> Passionate about programming</li>
+                  </ul>
+                  <br><br>
+                  <img src="media/meme-baguette.png" width="40%">
+                  <aside class="notes">
+                    <p>Don't miss the Snap introduction coming later by Kathy</p>
+                  </aside>
+                </section>
+                <section>
+                  <p>Started programming on calculators</p>
+                  <img src="media/meme-calculator.jpg" width="50%">
+                  <aside class="notes">
+                    <p>The size and the speed of a program matters a lot on calculators</p>
+                    <p>When I started programming PC</p>
+                    <p>Why I'm telling you that - Optimizing tool for compiler</p>
+                  </aside>
+                </section>
+              
+            </section>
+
+            <section>
+              <h3>Today is about SSA Form</h3>
+              <img src="media/meme-compiler.jpg" width="60%">
+              <aside class="notes">
+                <p>How many of you have already written and compiled a program?</p>
+                <p>Modern compilers: C++/C, Go, Java</p>
+                <p>How many of you have already written and compiled an assembly program?</p>
+              </aside>
+            </section>
+
+            <section>
+              <h2>Definition</h2>
+              <section>
+               <h3><span style="color:orange">SSA FORM</span></h3><br>
+                <blockquote>
+                  In compiler design, static single assignment form is a property of an intermediate representation (IR), which requires that each variable is assigned exactly once, and every variable is defined before it is used.
+                </blockquote>
+
+              <aside class="notes">
+                <p>What is Intermediate Representation?</p>
+              </aside>
+              </section>
+              <section>
+               <h3>Intermediate reprensentation</h3><br><br>
+               <img src="media/IR-diagram.svg" width="100%">
+              <aside class="notes">
+                <p>SSA live in an IR.</p>
+                <p>The IR is a data structure.</p>
+                <p>This data structure enable compiler optimizations.</p>
+                <p>I'll not explain how it is working, but what it is doing</p>
+              </aside>
+              </section>
+              <section>
+               <h3><span style="color:orange">Compiler optimizations</span></h3><br>
+                <ul>
+                  <li>Remove unecessary variables</li>
+                  <li>Optimize basic mathematic expressions</li>
+                </ul>
+              <aside class="notes">
+                This means something for us, but not for compiler.
+              </aside>
+              </section>
+              <section>
+               <h3><span style="color:orange">Low-level meaning</span></h3><br>
+                <ul>
+              <li>Limit abusive use of registers</li>
+              <li>Use the most efficient instruction sets</li>
+              </ul>
+              <aside class="notes">
+                <p>Metaphor with a water slide</p>
+              </aside>
+              </section>
+              <section>
+                <img src="media/toboggan.jpg" width="90%">
+              <aside class="notes">
+                <p>Top of the water slide: register</p>
+                <p>water slide: calculation/computation</p>
+                <p>Reduce the line: optimizing</p>
+              </aside>
+              </section>
+            </section>
+
+            <section>
+              <h2>SSA by example</h2>
+              <section>
+              <h3><span style="color:orange">Human point of view</span></h3>
+                <code class="hljs">z = i + x<br>x = <span class="hljs-number">2</span> * z</code>
+                <ul>
+                  <small><i style="color:green">i, x and z are integer</i></small><br><br>
+                  <li class="fragment" data-fragment-index="0">1 addition</li>
+                  <li class="fragment" data-fragment-index="1">1 multiplication</li>
+                  <li class="fragment" data-fragment-index="2">2 assignments</li>
+                </ul>
+                <aside class="notes">
+                  <p>z is used temporaly.</p>
+                  <p>We want to use z.</p>
+                </aside>
+              </section>
+              <section>
+                <h3><span style="color:orange">Dumb compiler</span></h3>
+                <code class="hljs">
+                  <span class="fragment" data-fragment-index="2">z =</span> <span class="fragment" data-fragment-index="0">i</span> <span class="fragment" data-fragment-index="1"> +</span><span class="fragment" data-fragment-index="0"> x</span><br>
+                  <span class="fragment" data-fragment-index="5">x =</span> <span class="hljs-number fragment" data-fragment-index="3">2 </span><span class="fragment" data-fragment-index="4">*</span><span class="fragment" data-fragment-index="3"> z</span>
+                </code>
+                <ul>
+                  <li class="fragment" data-fragment-index="0">Load 2 variables</li>
+                  <li class="fragment" data-fragment-index="1">Add x to i</li>
+                  <li class="fragment" data-fragment-index="2">Storing the result</li>
+                  <li class="fragment" data-fragment-index="3">Load a constant and a variable</li>
+                  <li class="fragment" data-fragment-index="4">Multiply 2 by a variable</li>
+                  <li class="fragment" data-fragment-index="5">Storing the result</li>
+                </ul>
+                <aside class="notes">
+                  <p>Remember: every calculation are made from the registers</p>
+                </aside>
+              </section>
+              <section>
+                <h3><span style="color:orange">Compiler using SSA</span></h3>
+                <code class="hljs">
+                  <span class="fragment" data-fragment-index="3">x =</span> <span class="fragment" data-fragment-index="1">(</span><span class="fragment" data-fragment-index="0">i</span><span class="fragment" data-fragment-index="1"> + </span><span class="fragment" data-fragment-index="0">x</span><span class="fragment" data-fragment-index="1">)</span><span class="fragment" data-fragment-index="2"> << <span class="hljs-number">1</span></span>
+                </code>
+                <ul>
+                  <li class="fragment" data-fragment-index="0">Load 2 variables</li>
+                  <li class="fragment" data-fragment-index="1">Adding a variable</li>
+                  <li class="fragment" data-fragment-index="2">Optimized multiplication by 2</li>
+                  <li class="fragment" data-fragment-index="3">Storing the result</li>
+                </ul>
+                <code class="fragment hljs" data-fragment-index="4">z = i + x<br>x = <span class="hljs-number">2</span> * z</code>
+                <aside class="notes">
+                  <p>Tricky part: multiplying by a constant is faster than multiplying by a variable. But in this case there is a better optimization because every CPU has an optimized instruction set for multiplying by 2. </p>
+                </aside>
+              </section>
+            </section> 
+            
+            <section>
+                <h2>Clarity and quality</h2>
+              <section>
+                <img src="media/clean-code.jpg" width="70%">
+                <blockquote class="fragment">premature optimization is the root of all evil</blockquote>
+                <aside class="notes"><p>SSA allow us to mix both</p><p>Real optimization have to be done in the complexity aspect.</p>
+                  <p>But SSA is not magic.</p>
+                </aside>
+              </section> 
+            </section>
+
+            <section>
+              <h2>SSA today</h2>
+              <section>
+                Enable a lot of compiler optimization algorithm:
+                <ul>
+                  <li >register allocation</li>
+                  <li >dead code elimination</li>
+                  <li >strength reduction</li>
+                  <li >constant propagation</li>
+                  <li >sparse conditional constant propagation</li>
+                  <li >global value numbering</li>
+                  <li >partial redundancy elimination</li>
+                  <li >value range propagation</li>
+                </ul>
+                <aside class="notes">
+                  <p>Not everything is implemented in every compiler.</p>
+                </aside>
+              </section> 
+              
+              <section data-background="media/gopher.png" data-background-size="30%" data-state="img-right">
+                <h3>Example of Go 1.7</h3>
+                <ul>
+                  <li >New backend for x86-64 architectures</li>
+                  <li >24% binary size decrease</li>
+                  <li >5-35% speed improvment</li>
+                </ul>
+
+                <aside class="notes">
+                  <p>Go had a ssa backend based on llvm (C).</p>
+                  <p>Good for the planet.</p>
+                  <p>Prove their is still work to do on that.</p>
+                </aside>
+              </section>
+            </section> 
+
+ 
+
+            <section>
+              <h2>Thank you!</h2>
+              <section>
+                 <h3>Questions? </h3>
+                <ul>
+                    <li >Twitter: <a href="https://twitter.com/kindermoumoute">@kindermoumoute</a></li>
+                    <li >Slides: <a href="https://kindermoumoute.github.io/ssaform">kindermoumoute.github.io/ssaform</a></li>
+                    <li>Github: <a href="https://github.com/kindermoumoute">github.com/kindermoumoute</a></li>
+                  </ul>
+                  <br><br>
+                <aside class="notes">
+                </aside>
+              </section> 
+
+              <!--<section>
+                <h3>ACKNOWLEDGEMENT</h3>
+                <ul>
+                    <li>Niklas Nielsen: <a href="https://twitter.com/quarfor">@quarfor</a></li>
+                    <li></li>
+                  </ul>
+                <aside class="notes">
+                </aside>
+              </section> -->
+
+              <section>
+                <h3>Sources</h3>
+                <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Static_single_assignment_form">SSA wikipedia</a></li>
+                    <li><a href="https://github.com/golang/go/blob/master/src/cmd/compile/internal/ssa">SSA package in Go</a></li>
+                    <li><a href="https://tip.golang.org/doc/go1.7">Go 1.7 changelog</a></li>
+                    <li><a href="https://www.reddit.com/r/golang/comments/4wvqkd/a_small_sample_of_smaller_binaries_using_go_17/">Go 1.7 size decrease measurement</a></li>
+                  </ul>
+                <aside class="notes">
+                </aside>
+              </section> 
+            </section> 
+           
+         </div>
+      </div>
+      <script src="lib/js/head.min.js"></script>
+      <script src="js/reveal.js"></script>
+      <script>
+         // Full list of configuration options available at:
+         // https://github.com/hakimel/reveal.js#configuration
+         Reveal.initialize({
+          controls: true,
+          progress: true,
+          history: true,
+          center: false,
+          slideNumber: true, 
+         
+         
+          transition: 'slide', // none/fade/slide/convex/concave/zoom
+         
+          // Optional reveal.js plugins
+          dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true },
+            { src: 'plugin/notes/notes.js', async: true }
+          ]
+         });
+         
+      </script>
+   </body>
+</html>
