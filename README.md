@@ -8,7 +8,7 @@ Find the slides on **[kindermoumoute.github.io/ssaform](https://kindermoumoute.g
 ## Links
 * The slide repository is on the [gh-pages branch](https://github.com/kindermoumoute/ssaform/tree/gh-pages) of this repository.
 * Find [a code example in Go](https://github.com/kindermoumoute/ssaform/tree/master/example-go) illustrating 2 different codes generating the same binary.
-* The sources are on the [the last slide](https://kindermoumoute.github.io/ssaform/#/7/1).
+* The sources are on the [the last slide](https://kindermoumoute.github.io/ssaform/#/8/1).
 
 ## Acknowledgement
 Thank you to [Dan Pittman](https://github.com/danielscottt), [Niklas Nielsen](https://github.com/nqn) and [Nichelle Hall](https://github.com/nichellebot) for their precious feedback!
