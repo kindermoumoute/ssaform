@@ -3,7 +3,7 @@
    <head>
       <meta charset="utf-8">
       <title>The unseen hero of modern compilers</title>
-      <meta name="description" content="End of summer presentation 2016">
+      <meta name="description" content="Golang meetup Paris">
       <meta name="author" content="Olivier Cano">
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -90,12 +90,10 @@
                <p>
                   <small>Created by <a href="https://github.com/kindermoumoute">Olivier Cano</a> / <a href="https://twitter.com/kindermoumoute">@kindermoumoute</a></small>
                </p>
-               <p><small><i>August 15, 2016</i></small></p>
+               <p><small><i>November 5, 2017</i></small></p>
                
                <aside class="notes">
-                  <p>- Hi, I'm Olivier Cano</p>
-                  <p>- Interning in SDI</p>
-                  <p>- Find the slides online</p>
+                  <p>Good evening :-)</p>
                </aside>
             </section>
 
@@ -119,7 +117,7 @@
                       <td>Esc</td>
                     </tr>
                 </table>
-                <p><small>View online at <a href="https://github.com/kindermoumoute/ssaform">https://github.com/kindermoumoute/ssaform </a></small><br/>
+                <p><small>View online at <a href="https://github.com/kindermoumoute/ssaform">github.com/kindermoumoute/ssaform </a></small><br/>
                 <small><i><b>Note:</b> Some slides move down instead of to the side, so use the space bar to advance slides.</i></small></p>
               
                 <aside class="notes">
@@ -132,15 +130,15 @@
               <h2>About Me</h2>
                <section>
                   <ul>
-                  <li> Working on Snap in the SDI Team</li>
                   <li> Student at Centrale Lille IG2I, northern France</li>
-                  <li> Advocate for sustainability</li>
+                  <li> Worked on Intel's Snap Telemetry Framework</li>
+                  <li> Looking for my end-of-study internship</li>
                   <li> Passionate about programming</li>
                   </ul>
                   <br><br>
-                  <img src="media/meme-baguette.png" width="40%">
+                  <img src="media/meme-baguette.png" width="40%"> 
                   <aside class="notes">
-                    <p>Don't miss the Snap introduction coming later by Kathy</p>
+                    <p>You can find my email on my github commits or just go to the end of this presentation</p>
                   </aside>
                 </section>
                 <section>
@@ -148,27 +146,23 @@
                   <img src="media/meme-calculator.jpg" width="50%">
                   <aside class="notes">
                     <p>The size and the speed of a program matters a lot on calculators</p>
-                    <p>When I started programming PC</p>
-                    <p>Why I'm telling you that - Optimizing tool for compiler</p>
                   </aside>
                 </section>
               
             </section>
 
             <section>
+            <br><br><br><br>
               <h3>Today is about SSA Form</h3>
-              <img src="media/meme-compiler.jpg" width="60%">
               <aside class="notes">
-                <p>How many of you have already written and compiled a program?</p>
-                <p>Modern compilers: C++/C, Go, Java</p>
-                <p>How many of you have already written and compiled an assembly program?</p>
+                <p>How many of you have heard about SSA?</p>
               </aside>
             </section>
 
             <section>
-              <h2>Definition</h2>
+              <h2>SSA FORM</h2>
               <section>
-               <h3><span style="color:orange">SSA FORM</span></h3><br>
+               <h3><span style="color:orange">Definition</span></h3><br>
                 <blockquote>
                   In compiler design, static single assignment form is a property of an intermediate representation (IR), which requires that each variable is assigned exactly once, and every variable is defined before it is used.
                 </blockquote>
@@ -188,31 +182,20 @@
               </aside>
               </section>
               <section>
-               <h3><span style="color:orange">Compiler optimizations</span></h3><br>
+               <h3><span style="color:orange">Goals</span></h3><br>
                 <ul>
                   <li>Remove unecessary variables</li>
                   <li>Optimize basic mathematic expressions</li>
                 </ul>
+                <section class="fragment" data-fragment-index="0">
+                  <h3><span style="color:orange" >In other words</span></h3><br>
+                  <ul>
+                    <li>Limit abusive use of registers</li>
+                    <li>Use the most efficient instruction sets</li>
+                  </ul>
+                </section>
               <aside class="notes">
                 This means something for us, but not for compiler.
-              </aside>
-              </section>
-              <section>
-               <h3><span style="color:orange">Low-level meaning</span></h3><br>
-                <ul>
-              <li>Limit abusive use of registers</li>
-              <li>Use the most efficient instruction sets</li>
-              </ul>
-              <aside class="notes">
-                <p>Metaphor with a water slide</p>
-              </aside>
-              </section>
-              <section>
-                <img src="media/toboggan.jpg" width="90%">
-              <aside class="notes">
-                <p>Top of the water slide: register</p>
-                <p>water slide: calculation/computation</p>
-                <p>Reduce the line: optimizing</p>
               </aside>
               </section>
             </section>
@@ -270,61 +253,24 @@
             </section> 
             
             <section>
-                <h2>Clarity and quality</h2>
               <section>
-                <img src="media/clean-code.jpg" width="70%">
-                <blockquote class="fragment">premature optimization is the root of all evil</blockquote>
-                <aside class="notes"><p>SSA allow us to mix both</p><p>Real optimization have to be done in the complexity aspect.</p>
-                  <p>But SSA is not magic.</p>
+              <br><br><br><br><br>
+                <blockquote>"premature optimization is the root of all evil"</blockquote>
+                <aside class="notes">
+                  <p>But SSA is not magic, can't fix bad design.</p>
+                  <p>24% binary size decrease on average</p>
+                  <p>5-35% speed improvement</p>
                 </aside>
               </section> 
             </section>
-
-            <section>
-              <h2>SSA today</h2>
-              <section>
-                Enable a lot of compiler optimization algorithm:
-                <ul>
-                  <li >register allocation</li>
-                  <li >dead code elimination</li>
-                  <li >strength reduction</li>
-                  <li >constant propagation</li>
-                  <li >sparse conditional constant propagation</li>
-                  <li >global value numbering</li>
-                  <li >partial redundancy elimination</li>
-                  <li >value range propagation</li>
-                </ul>
-                <aside class="notes">
-                  <p>Not everything is implemented in every compiler.</p>
-                </aside>
-              </section> 
-              
-              <section data-background="media/gopher.png" data-background-size="30%" data-state="img-right">
-                <h3>Example of Go 1.7</h3>
-                <ul>
-                  <li >New backend for x86-64 architectures</li>
-                  <li >24% binary size decrease</li>
-                  <li >5-35% speed improvement</li>
-                </ul>
-
-                <aside class="notes">
-                  <p>Go had a ssa backend based on llvm (C).</p>
-                  <p>Good for the planet.</p>
-                  <p>Prove their is still work to do on that.</p>
-                </aside>
-              </section>
-            </section> 
-
- 
-
+            
             <section>
               <h2>Thank you!</h2>
+              <br><br>
               <section>
-                 <h3>Questions? </h3>
                 <ul>
-                    <li >Twitter: <a href="https://twitter.com/kindermoumoute">@kindermoumoute</a></li>
                     <li >Slides: <a href="https://kindermoumoute.github.io/ssaform">kindermoumoute.github.io/ssaform</a></li>
-                    <li>Github: <a href="https://github.com/kindermoumoute">github.com/kindermoumoute</a></li>
+                    <li >Mail: <a href="kindermoumoute@gmail.com">kindermoumoute@gmail.com</a></li>
                   </ul>
                   <br><br>
                 <aside class="notes">
@@ -344,11 +290,9 @@
               <section>
                 <h3>Sources</h3>
                 <ul>
-                    <li><a href="https://en.wikipedia.org/wiki/Static_single_assignment_form">SSA wikipedia</a></li>
-                    <li><a href="https://github.com/golang/go/blob/master/src/cmd/compile/internal/ssa">SSA package in Go</a></li>
-                    <li><a href="https://tip.golang.org/doc/go1.7">Go 1.7 changelog</a></li>
-                    <li><a href="https://www.reddit.com/r/golang/comments/4wvqkd/a_small_sample_of_smaller_binaries_using_go_17/">Go 1.7 size decrease measurement</a></li>
-                  </ul>
+                  <li><a href="https://en.wikipedia.org/wiki/Static_single_assignment_form">SSA wikipedia</a></li>
+                  <li><a href="https://github.com/golang/go/blob/master/src/cmd/compile/internal/ssa">SSA package in Go</a></li>
+                </ul>
                 <aside class="notes">
                 </aside>
               </section> 
